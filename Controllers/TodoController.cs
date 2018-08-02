@@ -21,6 +21,11 @@ namespace Vue2Spa.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllTodos()
         {
+			
+			var userId = "123"; // TODO: Get actual user ID
+var todos = await _todoItemService.GetItems(userId);
+
+return Ok(todos);
             // TODO: Get to-do items and return to frontend
         }
     }
