@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Vue2Spa.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +30,7 @@ namespace Project
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+			services.AddSingleton<ITodoItemService, FakeTodoItemService>();
             services.AddMvc();
         }
 

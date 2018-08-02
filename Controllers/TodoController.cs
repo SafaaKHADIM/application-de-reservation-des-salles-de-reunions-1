@@ -10,6 +10,12 @@ namespace Vue2Spa.Controllers
     [Route("api/[controller]")]
     public class TodoController : Controller
     {
+		 private readonly ITodoItemService _todoItemService;
+
+    public TodoController(ITodoItemService todoItemService)
+    {
+        _todoItemService = todoItemService;
+    }
         // Handles GET /api/todo
         [HttpGet]
         public async Task<IActionResult> GetAllTodos()
