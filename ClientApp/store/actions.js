@@ -25,10 +25,14 @@ export const actions = {
     commit('loginError', null)
   },
 
-  async getAllTodos({ commit }) {
-    // Todo: get the user's to-do items
-    commit('loadTodos', [{ text: 'Fake to-do item' }])
-  },
+ async getAllTodos({ commit }) {
+  let response = await axios.get('/api/todo')
+
+  if (response && response.data) {
+    let updatedTodos = response.data
+    commit('loadTodos', updatedTodos)
+  }
+},
 
   async addTodo({ dispatch }, data) {
     // Todo: save a new to-do item
