@@ -4,7 +4,14 @@ import axios from 'axios'
 const sleep  = ms => {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
-
+const addAuthHeader = () => {
+  return {
+    headers: {
+        'Authorization': 'Bearer '
+            + oktaAuth.client.tokenManager.get('access_token').accessToken
+    }
+  }
+}
 export const actions = {
   checkLoggedIn({ commit }) {
   if (oktaAuth.client.tokenManager.get('access_token')) {
