@@ -1,4 +1,5 @@
-﻿using Vue2Spa.Services;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Vue2Spa.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace Project
 			services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(options =>
 {
-    options.Authority = "{{yourOktaOrgUrl}}/oauth2/default";
+    options.Authority = "https://dev-411137-admin.oktapreview.com/oauth2/default";
     options.Audience = "api://default";
 });
 			
@@ -62,6 +63,7 @@ namespace Project
             }
 
             app.UseStaticFiles();
+			app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
