@@ -32,6 +32,14 @@ namespace Project
             // Add framework services.
 			services.AddSingleton<ITodoItemService, FakeTodoItemService>();
             services.AddMvc();
+			services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+.AddJwtBearer(options =>
+{
+    options.Authority = "{{yourOktaOrgUrl}}/oauth2/default";
+    options.Audience = "api://default";
+});
+			
+			
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
