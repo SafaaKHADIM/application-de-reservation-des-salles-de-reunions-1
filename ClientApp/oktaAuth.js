@@ -6,9 +6,9 @@ const org = 'https://dev-411137-admin.oktapreview.com',
       authorizationServer = 'default'
 
 const oktaAuthClient = new OktaAuth({
-  url: https://dev-411137-admin.oktapreview.com,
+  url: 'https://dev-411137-admin.oktapreview.com',
   issuer: authorizationServer,
-  clientId: 0oafwdrmwl3ARWMRO0h7,
+  clientId: '0oafwdrmwl3ARWMRO0h7',
   redirectUri
 })
 
