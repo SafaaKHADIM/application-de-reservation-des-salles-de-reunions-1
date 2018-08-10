@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Okta.Sdk;
+using Okta.Sdk.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Vue2Spa.Services;
 using System;
 using System.Collections.Generic;
@@ -32,7 +34,7 @@ namespace Project
         {
 			services.AddSingleton<IOktaClient>(new OktaClient(new OktaClientConfiguration
 {
-    OrgUrl = "{{yourOktaOrgUrl}}",
+    OrgUrl = "https://dev-411137-admin.oktapreview.com",
     Token = Configuration["okta:token"]
 }));
             // Add framework services.
