@@ -30,6 +30,11 @@ namespace Project
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+			services.AddSingleton<IOktaClient>(new OktaClient(new OktaClientConfiguration
+{
+    OrgUrl = "{{yourOktaOrgUrl}}",
+    Token = Configuration["okta:token"]
+}));
             // Add framework services.
 			services.AddSingleton<ITodoItemService, FakeTodoItemService>();
             services.AddMvc();
